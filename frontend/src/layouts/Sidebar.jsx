@@ -41,15 +41,11 @@ export default function Sidebar({ mobile = false, onClose }) {
   const collapsed = !mobile && sidebarCollapsed;
 
   return (
-    <motion.aside
-      initial={mobile ? { x: -280 } : false}
-      animate={mobile ? { x: 0 } : {}}
-      exit={mobile ? { x: -280 } : {}}
-      transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+    <aside
       className={`
         flex flex-col h-full bg-gradient-to-b from-dark-950 via-[#0d0d1a] to-dark-950
         border-r border-white/5 relative overflow-hidden
-        ${collapsed ? 'w-[72px]' : 'w-[260px]'}
+        ${mobile ? 'w-[260px]' : collapsed ? 'w-[72px]' : 'w-[260px]'}
         transition-all duration-300 ease-in-out
       `}
     >
@@ -83,8 +79,11 @@ export default function Sidebar({ mobile = false, onClose }) {
         )}
 
         {mobile && (
-          <button onClick={onClose} className="p-1.5 rounded-lg text-white/40 hover:text-white hover:bg-white/10">
-            <X className="w-4 h-4" />
+          <button
+            onClick={onClose}
+            className="p-2 rounded-xl text-white/60 hover:text-white hover:bg-white/10 active:bg-white/20 transition-all min-w-[36px] min-h-[36px] flex items-center justify-center"
+          >
+            <X className="w-5 h-5" />
           </button>
         )}
       </div>
@@ -187,6 +186,6 @@ export default function Sidebar({ mobile = false, onClose }) {
           </button>
         )}
       </div>
-    </motion.aside>
+    </aside>
   );
 }

@@ -56,9 +56,9 @@ export default function Navbar({ onMenuClick }) {
       {/* Mobile menu button */}
       <button
         onClick={onMenuClick}
-        className="lg:hidden p-2 rounded-xl text-dark-500 dark:text-dark-400 hover:bg-dark-100 dark:hover:bg-dark-800 transition-all"
+        className="lg:hidden p-2.5 rounded-xl text-dark-500 dark:text-dark-400 hover:bg-dark-100 dark:hover:bg-dark-800 active:bg-dark-200 dark:active:bg-dark-700 transition-all min-w-[40px] min-h-[40px] flex items-center justify-center"
       >
-        <Menu className="w-5 h-5" />
+        <Menu className="w-6 h-6" />
       </button>
 
       {/* Desktop search bar */}

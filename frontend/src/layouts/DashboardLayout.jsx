@@ -17,26 +17,35 @@ export default function DashboardLayout() {
         <Sidebar />
       </div>
 
-      {/* Mobile sidebar overlay */}
+      {/* Mobile sidebar overlay — full-screen container so backdrop fills correctly */}
       <AnimatePresence>
         {mobileSidebarOpen && (
-          <>
+          <div className="fixed inset-0 z-40 lg:hidden">
+            {/* Backdrop — fills everything behind sidebar */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+              transition={{ duration: 0.2 }}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
               onClick={() => setMobileSidebarOpen(false)}
             />
-            <div className="fixed left-0 top-0 h-full z-50 lg:hidden">
+            {/* Sidebar panel — explicit width so backdrop stays tappable */}
+            <motion.div
+              initial={{ x: -280 }}
+              animate={{ x: 0 }}
+              exit={{ x: -280 }}
+              transition={{ type: 'tween', duration: 0.25 }}
+              className="absolute left-0 top-0 h-full w-[260px]"
+            >
               <Sidebar mobile onClose={() => setMobileSidebarOpen(false)} />
-            </div>
-          </>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-hidden min-w-0">
         <Navbar onMenuClick={() => setMobileSidebarOpen(true)} />
 
         <main className="flex-1 overflow-y-auto">
