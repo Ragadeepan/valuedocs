@@ -35,7 +35,7 @@ export default function StatsCard({ icon: Icon, label, value, trend, trendLabel,
         )}
       </div>
 
-      <p className="text-3xl font-bold font-display text-dark-900 dark:text-white mb-1">{value}</p>
+      <p className="text-2xl sm:text-3xl font-bold font-display text-dark-900 dark:text-white mb-1">{value}</p>
       <p className="text-sm text-dark-500 dark:text-dark-400">{label}</p>
       {trendLabel && <p className="text-xs text-dark-400 dark:text-dark-500 mt-1">{trendLabel}</p>}
     </motion.div>

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Bell, Sun, Moon, Menu, X } from 'lucide-react';
+import { Search, Bell, Sun, Moon, Monitor, Menu, X } from 'lucide-react';
 import { useThemeStore } from '../store/themeStore';
 import { useAuthStore } from '../store/authStore';
 import { useUIStore } from '../store/uiStore';
@@ -123,7 +123,7 @@ export default function Navbar({ onMenuClick }) {
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : theme === 'light' ? <Moon className="w-5 h-5" /> : <Monitor className="w-5 h-5" />}
             </motion.div>
           </AnimatePresence>
         </button>

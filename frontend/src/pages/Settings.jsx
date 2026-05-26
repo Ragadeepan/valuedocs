@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import {
-  User, Shield, Bell, Palette, Lock, Save, LogOut, Loader,
-  Sun, Moon, Monitor, Trash2, Download,
+  User, Shield, Palette, Save, LogOut, Loader,
+  Sun, Moon, Monitor, Trash2,
 } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
 import { useThemeStore } from '../store/themeStore';
@@ -103,6 +103,7 @@ export default function Settings() {
           {[
             { value: 'light', icon: Sun, label: 'Light' },
             { value: 'dark', icon: Moon, label: 'Dark' },
+            { value: 'auto', icon: Monitor, label: 'Auto' },
           ].map(({ value, icon: Icon, label }) => (
             <button
               key={value}
@@ -121,6 +122,9 @@ export default function Settings() {
             </button>
           ))}
         </div>
+        {theme === 'auto' && (
+          <p className="text-xs text-dark-400 mt-3">Follows your device's system dark/light preference automatically.</p>
+        )}
       </Section>
 
       {/* Security */}
