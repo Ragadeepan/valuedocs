@@ -41,7 +41,6 @@ const documentSchema = new mongoose.Schema(
     size: Number,
     expiryDate: {
       type: Date,
-      index: true,
     },
     notes: {
       type: String,
