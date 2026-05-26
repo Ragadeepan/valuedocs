@@ -21,6 +21,8 @@ const allowedOrigins = [
   'http://localhost:3000',
   'https://valuedocs-web1.web.app',
   'https://valuedocs-web1.firebaseapp.com',
+  'https://valuedocs-in.web.app',
+  'https://valuedocs-in.firebaseapp.com',
 ];
 
 app.use(cors({

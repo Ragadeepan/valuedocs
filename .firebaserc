@@ -1,5 +1,12 @@
 {
   "projects": {
     "default": "valuedocs-web1"
+  },
+  "targets": {
+    "valuedocs-web1": {
+      "hosting": {
+        "main": ["valuedocs-in"]
+      }
+    }
   }
 }
